@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3aa8c1"
+    tools:context=".ui.SecondFragment">
+
+    <!-- Wrap existing layout inside a layout container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Added Toolbar for Back Button -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/math_score"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="56dp"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:text="@string/math_score_text"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toTopOf="@+id/reading_score"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <TextView
+                android:id="@+id/reading_score"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="56dp"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:text="@string/reading_score_text"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toTopOf="@+id/writing_score"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <TextView
+                android:id="@+id/writing_score"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:text="@string/writing_score"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="42dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
