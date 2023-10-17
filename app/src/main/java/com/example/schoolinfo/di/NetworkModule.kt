@@ -4,6 +4,7 @@ import android.content.Context
 import com.example.schoolinfo.MyApp
 import com.example.schoolinfo.network.EndPoint
 import com.example.schoolinfo.network.SchoolApiService
+import com.example.schoolinfo.repository.RemoteDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -49,6 +50,11 @@ object NetworkModule {
     @Provides
     fun provideSchoolApiService(retrofit: Retrofit): SchoolApiService =
         retrofit.create(SchoolApiService::class.java)
+
+    @Singleton
+    @Provides
+    fun provideRemoteDataSource(schoolApiService: SchoolApiService): RemoteDataSource =
+        RemoteDataSource(schoolApiService )
 
     @Singleton
     @Provides

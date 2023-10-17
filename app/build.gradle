@@ -4,7 +4,6 @@ plugins {
     id 'org.jetbrains.kotlin.kapt'
     id 'com.google.dagger.hilt.android'
     id 'dagger.hilt.android.plugin'
-
     id 'androidx.navigation.safeargs'
 }
 
@@ -66,6 +65,7 @@ dependencies {
 
     // Hilt
     implementation "com.google.dagger:hilt-android:2.47"
+    implementation 'androidx.databinding:databinding-runtime:8.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.6.0-alpha01'
     kapt "com.google.dagger:hilt-compiler:2.47"
     testImplementation 'com.google.dagger:hilt-android-testing:2.45'

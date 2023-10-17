@@ -5,30 +5,27 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class DetailFragmentResponseModelItemTest {
-    @Test
-    fun testModelItemProperties() {
-        val dbn = "123456"
-        val numOfSatTestTakers = "500"
-        val criticalReadingAvgScore = "550"
-        val mathAvgScore = "600"
-        val writingAvgScore = "580"
-        val schoolName = "Test School"
 
-        val modelItem = DetailFragmentResponseModelItem(
-            dbn,
-            numOfSatTestTakers,
-            criticalReadingAvgScore,
-            mathAvgScore,
-            writingAvgScore,
-            schoolName
+    @Test
+    fun testModelProperties() {
+        // Create an instance of ResponseModelItem
+        val model = DetailFragmentResponseModelItem(
+            school_name = "Example School",
+            dbn = "123",
+            num_of_sat_test_takers = "50",
+            sat_math_avg_score = "90",
+            sat_writing_avg_score = "80",
+            sat_critical_reading_avg_score = "75"
         )
 
-        assertEquals(dbn, modelItem.dbn)
-        assertEquals(numOfSatTestTakers, modelItem.num_of_sat_test_takers)
-        assertEquals(criticalReadingAvgScore, modelItem.sat_critical_reading_avg_score)
-        assertEquals(mathAvgScore, modelItem.sat_math_avg_score)
-        assertEquals(writingAvgScore, modelItem.sat_writing_avg_score)
-        assertEquals(schoolName, modelItem.school_name)
+        // Verify that the properties have the expected values
+        assertEquals("Example School", model.school_name)
+        assertEquals("123", model.dbn)
+        assertEquals("50", model.num_of_sat_test_takers)
+        assertEquals("90", model.sat_math_avg_score)
+        assertEquals("80", model.sat_writing_avg_score)
+        assertEquals("75", model.sat_critical_reading_avg_score)
+
     }
 
 }

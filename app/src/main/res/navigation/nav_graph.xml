@@ -23,6 +23,7 @@
         <argument
             android:name="dbn"
             app:argType="string" />
+
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />

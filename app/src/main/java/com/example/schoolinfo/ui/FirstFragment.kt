@@ -42,24 +42,22 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.apply {
-            schoolViewModel.getSchoolsList()
-            schoolViewModel.response.observe(viewLifecycleOwner) { response ->
 
-                schoolAdapter = SchoolListAdapter(findNavController()) { clickedItem ->
-                    schoolViewModel.onSchoolItemClicked(clickedItem)
-                }
-
-                val data = response.data
-                schoolAdapter.differ.submitList(data)
-
-                rv.apply {
-                    layoutManager = LinearLayoutManager(requireContext())
-
-                    adapter = schoolAdapter
-                }
-
+            // Inside FirstFragment's onViewCreated() or where you set up the RecyclerView
+            schoolAdapter = SchoolListAdapter{ clickedItem ->
+                val action = FirstFragmentDirections.actionFirstFragmentToSecondFragment(clickedItem.dbn)
+                findNavController().navigate(action)
             }
+            rv.layoutManager = LinearLayoutManager(requireContext())
+            rv.adapter = schoolAdapter
+
+//          Observe LiveData for updates and submit the list when data changes
+            schoolViewModel.response.observe(viewLifecycleOwner) { response ->
+                schoolAdapter.submitList(response)
+            }
+
         }
 
     }
